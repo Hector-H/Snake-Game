@@ -16,16 +16,16 @@
     width: 90vmin;
     height: 92vmin;
     display: grid;
-    grid-template-rows: repeat(18, 1fr);
-    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(20, 1fr);
 }
 
 .snake {
     background: linear-gradient(red , grey);
-    border: 1px dotted white;
+    border: .23vmin solid white;
 }
 
 .food {
-    background: linear-gradient(green, blue)
-    
+    background: linear-gradient(green, blue);
+    border: .25vmin solid white;
 }
