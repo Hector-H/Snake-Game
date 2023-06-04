@@ -1,16 +1,19 @@
-export const speed = 1;
-let snakeHead = [
-    {x: 7, y: 15},
-]
-let food = {x: 16, y: 5}
+import {  getControlDirection } from "./controls.js";
+
+export const speed = 5;
+let snakeHead = [{x: 7, y: 15},]
+
 
 export function update() {
+    let controlDirection = getControlDirection()
     for(let i = snakeHead.length - 2; i >= 0; i--) {
         snakeHead[i + 1] = {...snakeHead[i] }
+
+        
     }
 
-    snakeHead[0].x += 0
-    snakeHead[0].y += 0
+    snakeHead[0].x += controlDirection.x
+    snakeHead[0].y += controlDirection.y
 }
 
 export function draw(background) {
@@ -23,10 +26,8 @@ export function draw(background) {
         background.appendChild(snakeBody)
     })
 
-    let foodElement = document.createElement('div')
-    foodElement.style.gridRowStart = food.y;
-    foodElement.style.gridColumnStart = food.x;
-    foodElement.classList.add('food')
-    background.appendChild(foodElement)
 }
 
+export function addToSnake() {
+
+}

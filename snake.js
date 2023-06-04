@@ -1,5 +1,7 @@
 import { update as updateSnake, draw as drawSnake, 
-    speed } from "./snakeHead.js";
+    speed, } from "./snakeHead.js";
+import { update as updateFood, draw as drawFood} from "./food.js"
+
 let lastPaintTime = 0;
 const background = document.getElementById('background')
 
@@ -13,14 +15,10 @@ function main(currentTime) {
     if((currentTime - lastPaintTime) / 1000 < 1 /  speed) {
         return;
     }
-    
     lastPaintTime = currentTime
-    
-
     update()
     draw()
 }
-//
 // function gameLogic(){
 //     background.innerHTML = "";
 //     snakeHead.forEach((e) => {    //creates div for snake head
@@ -30,7 +28,6 @@ function main(currentTime) {
 //         snakeBody.classList.add('snake');
 //         background.appendChild(snakeBody)
 //     })
-
 //     let foodElement = document.createElement('div')
 //     foodElement.style.gridRowStart = food.y;
 //     foodElement.style.gridColumnStart = food.x;
@@ -44,11 +41,10 @@ window.requestAnimationFrame(main)
 
 function update() {
     updateSnake()
+    updateFood()
 }
 
 function draw() {
     drawSnake(background)
+    drawFood(background)
 }
-
-
-
