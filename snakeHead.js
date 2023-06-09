@@ -4,6 +4,9 @@ export const speed = 5;
 let snakeHead = [{x: 7, y: 15},]
 let newSegments = 0
 
+//scoreboard
+
+
 export function update() {
     addSegments()
 

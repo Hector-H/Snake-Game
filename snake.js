@@ -6,6 +6,7 @@ import { outsideGrid } from "./grid.js";
 let lastPaintTime = 0;
 const background = document.getElementById('background')
 let gameLost = false
+let score = 0;
 
 
 //updates game board 
@@ -16,16 +17,18 @@ function main(currentTime) {
         }
         return 
     }
-
+    
     window.requestAnimationFrame(main)
     if((currentTime - lastPaintTime) / 1000 < 1 /  speed) {
-        return;
-    }
-    lastPaintTime = currentTime
-    update()
-    draw()
+    return;
+        }
+        lastPaintTime = currentTime
+        update()
+        draw()
 }
 window.requestAnimationFrame(main)
+
+
 
 //functions to draw, update snake
 function update() {
@@ -33,7 +36,7 @@ function update() {
     updateFood()
     gameOver()
 }
-
+//draws new position for snake 
 function draw() {
     drawSnake(background)
     drawFood(background)
